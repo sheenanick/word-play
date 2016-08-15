@@ -1,6 +1,10 @@
 $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
+    $("button#reset").click(function() {
+      $("#output").hide();
+    });
+    
     var userInput = $("input#sentence").val()
     var array = userInput.split(" ");
 
@@ -11,7 +15,7 @@ $(document).ready(function() {
       }
     });
 
-    var lastArray = threeOrMoreArray.reverse().join();
-    $("#output").text(lastArray);
+    var lastArray = threeOrMoreArray.reverse().join(" ");
+    $("#output").text(lastArray).show();
   });
 });
